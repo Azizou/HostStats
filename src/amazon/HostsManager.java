@@ -9,6 +9,12 @@ public class HostsManager {
 	private List<Host> hosts;
 	
 	/**
+	 * Number of hosts being processed
+	 */
+	private int numHosts;
+	
+
+	/**
 	 * An array of size InstantType.values.length, it contains the number of host of type Instant type
 	 * that have all slots full
 	 */
@@ -61,9 +67,6 @@ public class HostsManager {
 	 */
 	void processHosts(){
 		for(Host host : hosts){
-			System.out.println(host);
-			System.out.println("Empty count for host: " + host.emptySlots());
-			System.out.println("Full count for host: " + host.fullSlot());
 			InstantType type = host.getHostInstantType();
 			switch (type) {
 			case M1:
@@ -133,6 +136,48 @@ public class HostsManager {
 	public void setHosts(List<Host> hosts) {
 		this.hosts = hosts;
 	}
+	
+	/**
+	 * @return the numHosts
+	 */
+	public int getNumHosts() {
+		return hosts.size();
+	}
+	/**
+	 * @return the fullCount
+	 */
+	public int[] getFullCount() {
+		return fullCount;
+	}
+
+	/**
+	 * @return the emptyCount
+	 */
+	public int[] getEmptyCount() {
+		return emptyCount;
+	}
+
+	/**
+	 * @return the mostFilledCount
+	 */
+	public int[] getMostFilledCount() {
+		return mostFilledCount;
+	}
+
+	/**
+	 * @return the mostFilledEmptySlot
+	 */
+	public int[] getMostFilledEmptySlot() {
+		return mostFilledEmptySlot;
+	}
+
+	/**
+	 * @return the numintances
+	 */
+	public static int getNumintances() {
+		return numIntances;
+	}
+
 	@Override
 	public String toString() {
 		return "EMPTY: M1 = "+ emptyCount[0] + "; M2 = " + emptyCount[1] + "; M3 = " + emptyCount[2] + "\n" + 
