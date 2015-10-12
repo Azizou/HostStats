@@ -3,16 +3,18 @@
  */
 package amazon;
 
-enum InstantType {M1, M2, M3};
+enum InstantType {
+	M1, M2, M3
+};
 
-public class Host{
-	
+public class Host {
+
 	private long hostID;
-	private int numberOfSlots; //assuming at most pow(2,32) slots
+	private int numberOfSlots; // assuming at most pow(2,32) slots
 	private InstantType instanceType;
-	private boolean slotState[]; //could have been static array but size is only known at runtime
-	
-	
+	private boolean slotState[]; // could have been static array but size is
+									// only known at runtime
+
 	public Host(long id, int n, InstantType type, boolean states[]) {
 		hostID = id;
 		instanceType = type;
@@ -20,35 +22,38 @@ public class Host{
 		assert states.length == numberOfSlots;
 		slotState = states;
 	}
-	
-	long getHostId(){
+
+	long getHostId() {
 		return hostID;
 	}
-	InstantType getHostInstantType(){
+
+	InstantType getHostInstantType() {
 		return instanceType;
 	}
-	
-	int emptySlots(){
+
+	int emptySlots() {
 		int count = 0;
-		for(int i=0; i<numberOfSlots;++i){
-			if(!slotState[i])
+		for (int i = 0; i < numberOfSlots; ++i) {
+			if (!slotState[i])
 				count++;
 		}
 		return count;
 	}
-	int fullSlot(){
+
+	int fullSlot() {
 		return numberOfSlots - emptySlots();
 	}
-	boolean isEmpty(){
+
+	boolean isEmpty() {
 		return emptySlots() == numberOfSlots;
 	}
-	
-	boolean isFull(){
-		return fullSlot()== numberOfSlots;
+
+	boolean isFull() {
+		return fullSlot() == numberOfSlots;
 	}
 
 	@Override
 	public String toString() {
-		return "Host: "+hostID + ", type: "+instanceType+", slots count: "+numberOfSlots;
+		return "Host: " + hostID + ", type: " + instanceType + ", slots count: " + numberOfSlots;
 	}
 }

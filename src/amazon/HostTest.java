@@ -8,10 +8,6 @@ public class HostTest {
 
 	boolean states[] = {false,true,false,false};
 	Host host = new Host(10, 4, InstantType.M1, states);
-//	@Test
-//	public void testHost(){
-//		assertTrue(host.isEmpty());// host.emptySlots()
-//	}
 
 	@Test
 	public void testGetHostId() {
@@ -45,7 +41,6 @@ public class HostTest {
 
 	@Test
 	public void testToString() {
-//		"Host: 10, type: M1, slots count: 4"
 		assertEquals("Host: 10, type: M1, slots count: 4", host.toString());
 	}
 
