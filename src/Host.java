@@ -1,7 +1,7 @@
 /**
  * 
  */
-package amazon;
+
 
 enum InstantType {
 	M1, M2, M3

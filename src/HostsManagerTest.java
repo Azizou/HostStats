@@ -1,4 +1,4 @@
-package amazon;
+
 
 import static org.junit.Assert.*;
 

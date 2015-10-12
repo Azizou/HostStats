@@ -1,8 +1,11 @@
-package amazon;
+
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+//import Host;
+//import InstantType;
 
 public class HostTest {
 

@@ -1,10 +1,8 @@
-package amazon;
 
 //packages from java.util
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
 //IO packages
 import java.io.PrintWriter;
 import java.io.FileNotFoundException;
@@ -135,7 +133,7 @@ public class InstanceStatisticDriver {
 						} 
 					}
 					else{
-						System.out.println("Again");
+						valid_host = false;
 					}
 				}
 			}
@@ -149,13 +147,15 @@ public class InstanceStatisticDriver {
 		
 		System.out.println(hosts.size() + " hosts have been correctly read from "+ counter + " lines");
 		if(hosts.size() < counter){
-			System.out.println((counter - hosts.size()) + " lines were malformed");
+			System.out.println((counter - hosts.size()) + " lines were malformed and will be ignored durring processing");
 		}
 		
 		HostsManager hm = new HostsManager();
 		hm.setHosts(hosts);
+		System.out.println("Processing hosts...");
 		hm.processHosts();
 		output.println(hm);
+		System.out.println("Done processing the input file. Result/Summary is in "+ outputFileName );
 		output.flush();
 		output.close();
 		input.close();
